@@ -1,0 +1,105 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for all screens */
+#game-selection, #game1, #game2 {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Initially show the game selection screen */
+#game-selection {
+    display: block;
+    margin: 5px 0;
+}
+
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+}
+
+p {
+    color: #555555;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+/* Game Options Container */
+.game-options-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 15px; /* Space between game options */
+}
+
+/* Game Option Buttons */
+.game-option {
+    background: #4CAF50;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-option:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Back Button */
+.back-button {
+    background: #f44336;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+    background: #e53935;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Screen Transition Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+    .game-option {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
