@@ -4,35 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
     <title>Attention Games</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style/style.css" />
 </head>
 <body>
-
-    <!-- Game Selection Screen -->
-    <div id="game-selection">
-        <h1>Attention Games</h1>
-        <!-- Game Options Container -->
-        <div class="game-options-container">
-            <div class="game-option" data-game="game1">Find the Word</div>
-            <div class="game-option" data-game="game2">Sort the Numbers</div>
-        </div>
-    </div>
-
-    <!-- Game 1 Screen -->
-    <div id="game1">
-        <h1>Find the Word Game</h1>
-        <p>Identify the hidden word in a random sequence of letters as quickly as possible.</p>
-        <div class="back-button" data-back>Go Back</div>
-    </div>
-
-    <!-- Game 2 Screen -->
-    <div id="game2">
-        <h1>Sort the Numbers Game</h1>
-        <p>Click on the numbers in ascending order as fast as you can.</p>
-        <div class="back-button" data-back>Go Back</div>
-    </div>
-
+    <div id="root"></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="./js/index.js"></script>
 </body>
 </html>
