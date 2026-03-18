@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); if echo \"$FILE\" | grep -q '\\.env'; then echo '{\"continue\": false, \"stopReason\": \".env dosyasina dokunma! Secrets korunuyor.\"}'; fi",
+            "timeout": 5,
+            "statusMessage": ".env koruması kontrol ediliyor..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); if [ -n \"$FILE\" ] && echo \"$FILE\" | grep -qE '\\.(ts|tsx|js|jsx|json|css)$'; then cd /Users/sidarhalman/Documents/MyDesktop/freelancer/clients/rewshen/focus-game/focus-game && npx prettier --write \"$FILE\" 2>/dev/null || true; fi",
+            "timeout": 30,
+            "statusMessage": "Prettier formatlanıyor..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'tell app \"System Events\" to display notification \"Claude isi bitirdi!\" with title \"Focus Game\"' 2>/dev/null || true",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
